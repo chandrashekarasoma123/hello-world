@@ -1,0 +1,13 @@
+[root@ansible passwd_ssh]# ls
+ansible.cfg  docker  hosts  id_rsa.pub  old.ssh.yml  ssh1.yml  ssh2.yml  ssh.yml
+
+[root@ansible passwd_ssh]# cat ansible.cfg 
+[defaults]
+inventory=/home/sh228261/passwd_ssh/hosts
+remote_tmp     = /tmp/.ansible-${USER}/tmp
+
+[root@ansible passwd_ssh]# cat hosts 
+registry ansible_host=10.128.0.4 ansible_ssh_user=sh
+docker ansible_host=10.128.0.3 ansible_ssh_user=sh
+[root@ansible passwd_ssh]# 
+
