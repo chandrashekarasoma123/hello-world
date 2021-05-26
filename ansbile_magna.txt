@@ -1,0 +1,1806 @@
+  939  ls -la
+  940  ls -la | grep changepass
+  941  vi changepass-bchoda.yml
+  942  more changepass-swoo.yml
+  943  vi changepass-bchoda.yml
+  944  ls -la | grep ivan
+  945  more changepass-ivan.yml
+  946  cp -p changepass-ivan.yml changepass-bchoda.yml
+  947  vi changepass-bchoda.yml
+  948  cat changepass-bchoda.yml
+  949  vi changepass-swoo.yml
+  950  ls -la
+  951  mroe changepass-bchoda.yml
+  952  more changepass-bchoda.yml
+  953  ansible-playbook changepass-bchoda.yml
+  954  exit
+  955  cd /etc/ansible/roles/
+  956  ls
+  957  ls -ltrh
+  958  cat changepass-ivan.yml
+  959  grep -i bchoda /etc/shadow
+  960  cat /etc/hosts | grep -i ivan
+  961  cat /etc/passwd | grep -i ivan
+  962  su  - imagana
+  963  exit
+  964  cat /etc/passwd | grep -i woo
+  965  su - swoo
+  966  exit
+  967  su - ansisble
+  968  su - ansible
+  969  history
+  970  cd /etc/ansible/
+  971  ansible-playbook uptime.yml -i test.txt -vvvv
+  972  cd /home
+  973  cd  csomayaj
+  974  ls
+  975  cp -p cd /etc/ansible/playbooks/
+  976  /etc/ansible/playbooks/
+  977  cp -ptest.txt /etc/ansible/playbooks/
+  978  cp -p test.txt /etc/ansible/playbooks/
+  979  cp -p uptime.yml /etc/ansible/playbooks/
+  980  ls
+  981  mv uptime.yml uptime_chdnar.yml
+  982  mv uptime_chdnar.yml /etc/ansible/playbooks/
+  983  cd /etc/ansible/playbooks/
+  984  ls -la
+  985  ansible-playbook uptime_chdnar.yml -i test.txt -vvvv
+  986  cat change-lijo.yml
+  987  history
+  988  ansible-playbook -i /etc/hosts uptime.yml
+  989  cat /etc/hosts
+  990  cat uptime.yml
+  991  ansible-playbook -i /etc/hosts uptime_chdnar.yml
+  992  cat /etc/hosts
+  993  exit
+  994  cd /var/tmp
+  995  ls -ltrh
+  996  cat hostlist
+  997  cat hostlist | wc -l
+  998  cat /etc/hosts
+  999  cat /etc/hosts | grep -i magcarlnxq0a
+ 1000  cat /etc/hosts | grep -i magcarllnw01
+ 1001  history
+[root@magcarlnxdmo ~]# cd /etc/ansible/playbooks/
+[root@magcarlnxdmo playbooks]# ls -lsa
+total 116
+4 drwxr-xr-x. 2 root     root    4096 Feb  5 05:37 .
+4 drwxr-xr-x. 5 root     root    4096 Feb  5 02:45 ..
+4 -rw-r--r--. 1 root     root     239 Jul  3  2019 1
+4 -rw-r--r--. 1 root     root     653 Mar 23  2020 addsaproot.yml
+4 -rw-r--r--. 1 root     unixadm  651 Jul  6  2018 basisadduser.yml
+4 -rw-r--r--. 1 root     root      13 Jul  3  2019 change-lijo.retry
+4 -rw-r--r--. 1 root     root     308 May 14  2019 change-lijo.yml
+4 -rw-r--r--. 1 root     root      13 Jul  3  2019 change-passwd-lgorantl.retry
+4 -rw-r--r--. 1 root     root     244 Jul  3  2019 change-passwd-lgorantl.yml
+4 -rw-r--r--. 1 root     root     386 Oct 27  2018 change-passwd.retry
+4 -rw-r--r--. 1 root     unixadm  304 Oct 27  2018 change-passwd.yml
+4 -rw-r--r--. 1 root     root     293 Nov  2 04:50 change-swoo-passwd.yml
+4 -rw-r--r--. 1 root     root      22 Jul 29  2018 change-vapin-passwd.retry
+4 -rw-r--r--. 1 root     unixadm  295 Feb  5 04:22 change-vapin-passwd.yml
+4 -rw-r--r--. 1 root     unixadm  183 Jul  6  2018 copy-file.yml
+4 -rw-r--r--. 1 root     unixadm  276 Apr 11  2019 irvingbackuproute.yml
+4 -rw-r--r--. 1 root     unixadm  142 Jul  6  2018 irving-route-eno50338560
+4 -rw-r--r--. 1 root     root      14 Mar 22  2019 magna.retry
+4 -rw-r--r--. 1 root     unixadm  598 Oct  1 16:24 magna.yml
+4 -rw-r--r--. 1 root     root      81 Mar 23  2020 removesaproot
+4 -rw-r--r--. 1 root     root      28 Feb 28  2019 searchcifs.retry
+4 -rw-r--r--. 1 root     root     141 Feb 28  2019 searchcifs.yml
+4 -rw-r--r--. 1 csomayaj unixadm   21 Feb  5 05:26 test.txt
+4 -rw-r--r--. 1 root     root     228 Oct 25 03:13 time-magna.yml
+4 -rw-r--r--. 1 root     root     163 Nov 16 21:10 time-zone.yml
+4 -rw-r--r--. 1 root     root     231 Nov 16 20:53 time.zone.yml
+4 -rw-r--r--. 1 root     root     167 Sep 17  2019 tmout.yml
+4 -rw-r--r--. 1 csomayaj unixadm  664 Feb  5 05:31 uptime_chdnar.yml
+4 -rw-r--r--. 1 root     root      88 Feb  5 01:28 uptime.yml
+[root@magcarlnxdmo playbooks]# cat uptime.yml
+---
+
+- hosts: all
+  gather_facts: False
+  tasks:
+  - name: run uptime
+    shell: uptime
+[root@magcarlnxdmo playbooks]# cat uptime_chdnar.yml
+## query.yml
+#### This playbook is for creating querys to various RHEL versions
+#
+#
+#- hosts: test
+#  become: yes
+#
+#    tasks:
+#    #"ansible_distribution_major_version"
+#       - name: QUERY_uname
+#            shell: "uname -n;uptime"
+#            #     when: ansible_os_family == 'RedHat'
+#                 register: query1
+#                 #
+#                 #   - name: QUERY_uptime
+#                 #     shell: uptime
+#                 #     when: ansible_distribution == 'RedHat'
+#                 #     register: query2
+#                 #
+#                    - debug: var=query1.stdout_lines
+#                    #   - debug: var=query2.stdout_lines
+[root@magcarlnxdmo playbooks]# cat uptime.yml
+---
+
+- hosts: all
+  gather_facts: False
+  tasks:
+  - name: run uptime
+    shell: uptime
+[root@magcarlnxdmo playbooks]# ansible-playbook -i /etc/hosts uptime.yml
+ [WARNING]:  * Failed to parse /etc/hosts with yaml plugin: Syntax Error while loading YAML.   did not find expected <document start>  The error appears to be in
+'/etc/hosts': line 37, column 1, but may be elsewhere in the file depending on the exact syntax problem.  The offending line appears to be:  #10.12.0.26
+magcarcsmaaix caraix 10.12.0.26      magcarlnxs05 s05 ^ here There appears to be a tab character at the start of the line.  YAML does not use tabs for formatting. Tabs
+should be replaced with spaces.  For example:     - name: update tooling       vars:         version: 1.2.3 #    ^--- there is a tab there.  Should be written as:
+- name: update tooling       vars:         version: 1.2.3 # ^--- all spaces here.
+
+ [WARNING]:  * Failed to parse /etc/hosts with ini plugin: /etc/hosts:1: Expected key=value host variable assignment, got: localhost
+
+ [WARNING]: Unable to parse /etc/hosts as an inventory source
+
+ [WARNING]: No inventory was parsed, only implicit localhost is available
+
+ [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+
+PLAY [all] *************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY RECAP *************************************************************************************************************************************************************
+
+[root@magcarlnxdmo playbooks]# cd /etc/ansible
+[root@magcarlnxdmo ansible]# ls -la
+total 80
+drwxr-xr-x.   5 root root  4096 Feb  5 02:45 .
+drwxr-xr-x. 128 root root  8192 Feb  5 04:24 ..
+-rw-r--r--.   1 root root 17818 May  6  2020 ansible.cfg
+-rw-r--r--.   1 root root 19980 Aug 16  2019 ansible.cfg.rpmnew
+-rw-r--r--.   1 root root    36 Jan 28 15:36 audit
+-rw-r--r--.   1 root root  5680 Feb  5 02:45 hosts
+drwxr-xr-x.   2 root root  4096 Feb  1 15:27 inventory
+drwxr-xr-x.   2 root root  4096 Feb  5 05:37 playbooks
+drwxr-xr-x.   6 root root  4096 Feb  5 04:32 roles
+[root@magcarlnxdmo ansible]# cat hosts
+# This is the default ansible 'hosts' file.
+#
+# It should live in /etc/ansible/hosts
+#
+#   - Comments begin with the '#' character
+#   - Blank lines are ignored
+#   - Groups of hosts are delimited by [header] elements
+#   - You can enter hostnames or ip addresses
+#   - A hostname/ip can be a member of multiple groups
+
+# Ex 1: Ungrouped hosts, specify before any group headers.
+
+## green.example.com
+## blue.example.com
+## 192.168.100.1
+## 192.168.100.10
+
+# Ex 2: A collection of hosts belonging to the 'webservers' group
+
+## [webservers]
+## alpha.example.org
+## beta.example.org
+## 192.168.1.100
+## 192.168.1.110
+
+# If you have multiple hosts following a pattern you can specify
+# them like this:
+
+## www[001:006].example.com
+
+# Ex 3: A collection of database servers in the 'dbservers' group
+
+## [dbservers]
+##
+## db01.intranet.mydomain.net
+## db02.intranet.mydomain.net
+## 10.25.1.56
+## 10.25.1.57
+
+# Here's another example of host ranges, this time there are no
+# leading 0s:
+
+## db-[99:101]-node.example.com
+
+[magna]
+#10.12.0.12
+#10.12.0.17
+#10.12.0.19
+#10.12.0.22
+#10.12.0.23
+#10.12.0.77
+#10.12.0.78
+#10.12.0.79
+#10.12.0.91
+#prdd
+#prda
+##10.12.0.101
+10.12.0.61
+#10.64.220.42
+10.12.0.11
+10.12.0.12
+10.12.0.13
+#10.12.0.59
+#10.12.0.60
+10.12.0.62
+#10.64.220.86
+#10.12.0.14
+#10.12.0.15
+#10.12.0.16
+10.12.0.17
+10.12.0.18
+10.12.0.19
+10.12.0.22
+10.12.0.23
+#10.12.0.41
+#10.12.0.51
+#10.64.220.43
+#10.12.0.101
+10.12.0.82
+10.12.0.83
+10.12.0.75
+10.12.0.76
+#10.12.0.77
+#10.12.0.78
+10.12.0.79
+10.12.0.27
+
+[test]
+magirvlnxcsma
+#magcarlnxcsdd
+#10.12.0.12
+##10.12.0.101
+#10.12.0.19
+#prda
+#prd1
+#prd2
+#prdd
+
+[uni]
+#10.12.0.101
+10.12.0.11
+10.12.0.12
+10.12.0.13
+10.12.0.17
+10.12.0.18
+10.12.0.19
+10.12.0.22
+10.12.0.23
+#10.12.0.41
+10.12.0.51
+10.12.0.60
+10.12.0.61
+10.12.0.62
+10.12.0.75
+10.12.0.76
+10.12.0.77
+10.12.0.78
+10.12.0.79
+10.12.0.82
+10.12.0.83
+10.12.0.91
+prda
+prdd
+#10.12.0.18
+
+[prod]
+prda
+prd1
+prd2
+prdd
+
+[sap]
+10.12.0.18
+10.12.0.24
+10.12.0.22
+10.12.0.82
+10.12.0.83
+
+[romy]
+magirvlnxprda
+magirvlnxprdd
+magirvlnxprd1
+magirvlnxprd2
+magirvlnxcsma
+magirvlnxcsm1
+magirvlnxpfs1
+magcarlnxcssa
+magcarlnxcssd
+magcarlnxcsda
+magcarlnxcsma
+magcarlnxqasa
+magcarlnxMD3a
+magirvlnxcsm1
+magirvlnxcsma
+magirvlnxpfs1
+magirvlnxprd1
+magirvlnxprd2
+magirvlnxprda
+magirvlnxprdd
+magcarlnxQ05a
+magcarlnxQ05d
+magirvlnxp05a
+magirvlnxp05d
+#magirvlnxp06a
+
+[steady]
+10.12.0.22
+10.12.0.23
+10.12.0.24
+10.12.0.19
+10.12.0.82
+10.12.0.83
+10.12.0.79
+10.12.0.18
+10.12.0.11
+10.12.0.84
+10.12.0.12
+10.12.0.13
+10.12.0.75
+10.12.0.76
+10.12.0.77
+10.12.0.78
+
+[infra]
+10.12.0.111
+#10.12.0.41
+10.12.0.51
+10.12.0.91
+#10.12.0.101
+[byname]
+magcarlnxcsmr
+magcarlnxprdr
+magcarlnxq0a
+magcarllnw01
+magcarlnxcsda
+magcarlnxcsdd
+magcarlnxcsma
+magcarlnxcsmd
+magcarlnxcssa
+magcarlnxcssd
+magcarlnxd05
+magcarlnxd06
+magcarlnxdmo
+magcarlnxfgd
+magcarlnxmd3a
+magcarlnxmd3d
+magcarlnxqasa
+magcarlnxq05a
+magcarlnxq05d
+magcarlnxqasd
+magirvlnxcsm1
+magirvlnxcsma
+magirvlnxcsmd
+magirvlnxfgp
+magirvlnxp0a
+magirvlnxp05a
+magirvlnxp05d
+magirvlnxp06a
+magirvlnxp06d
+magirvlnxpfs1
+magirvlnxprd1
+magirvlnxprd2
+magirvlnxprda
+magirvlnxprdd
+
+[complete]
+10.12.0.11
+10.12.0.111
+10.12.0.12
+10.12.0.13
+10.12.0.17
+10.12.0.18
+10.12.0.19
+10.12.0.22
+10.12.0.23
+10.12.0.24
+10.12.0.25
+10.12.0.26
+10.12.0.27
+10.12.0.28
+10.12.0.29
+10.12.0.30
+10.12.0.32
+10.12.0.33
+10.12.0.51
+10.12.0.60
+10.12.0.61
+10.12.0.62
+10.12.0.75
+10.12.0.76
+10.12.0.77
+10.12.0.78
+10.12.0.79
+10.12.0.82
+10.12.0.83
+10.12.0.84
+10.12.0.85
+10.12.0.86
+10.12.0.87
+10.12.0.88
+10.12.0.89
+10.12.0.91
+
+[install]
+magirvlnxp0a
+
+[basisss]
+10.12.0.22
+10.12.0.23
+10.12.0.18
+10.12.0.19
+10.12.0.82
+10.12.0.83
+10.12.0.79
+10.12.0.25
+magcarlnxcssa
+magcarlnxfgd
+magirvlnxfgp
+magirvlnxprda
+magirvlnxprdd
+magirvlnxprd1
+magirvlnxprd2
+Magirvlnxpfs1
+magcarlnxqasa
+magcarlnxqasd
+magcarlnxmd3a
+magcarlnxmd3d
+magcarlnxd05
+magcarlnxq05a
+magcarlnxq05d
+magirvlnxp05a
+magirvlnxp05d
+magcarlnxs05
+magcarlnxd06
+magirvlnxp06d
+
+[basisnew]
+d05
+q05a
+q05d
+p05a
+p05d
+d06
+p06a
+p06d
+s05
+
+[test-cmdb]
+10.12.0.28
+10.12.0.29
+
+[oncmdb]
+magirvlnxpfs1
+magcarlnxfgd
+magcarlnxmd3a
+magcarlnxmd3d
+magcarllnw01
+magcarlnxcsma
+magcarlnxcsmd
+magcarlnxcsda
+magcarlnxcsdd
+magcarlnxcssa
+magcarlnxcssd
+magcarlnxd05
+magcarlnxd06
+magcarlnxqasa
+#magcarlnxdmo
+magcarlnxqasd
+magirvlnxprda
+magirvlnxprdd
+magirvlnxprd1
+magirvlnxprd2
+magirvlnxcsmd
+magirvlnxcsma
+magirvlnxcsm1
+magirvlnxfgp
+magirvlnxp05a
+magirvlnxp05d
+#magirvlnxp06a
+magirvlnxp06d
+
+[temp]
+magcarlnxQ05a
+magcarlnxQ05d
+magcarlnxS05
+
+[cosmaaud]
+magirvlnxcsm1
+magirvlnxcsma
+magirvlnxcsmd
+
+[disk]
+magirvlnxprda
+magirvlnxprdd
+magirvlnxprd1
+magirvlnxprd2
+Magirvlnxpfs1
+magcarlnxqasa
+magcarlnxqasd
+magcarlnxfgd
+magirvlnxfgp
+magcarlnxmd3a
+magcarlnxmd3d
+magirvlnxcsma
+magirvlnxcsm1
+magirvlnxcsmd
+magcarlnxcsma
+magcarlnxcsmd
+magcarlnxcsda
+magcarlnxcsdd
+magcarlnxcssa
+magcarlnxcssd
+magcarlnxD05
+magcarlnxQ05a
+magcarlnxQ05d
+magirvlnxP05a
+magirvlnxP05d
+magcarlnxS05
+magcarlnxD06
+magirvlnxP06d
+
+[balu]
+magcarlnxdmo
+hoxspd01
+magcarlnxfgd
+magcarlnxmd3a
+magcarlnxmd3d
+magnahp1
+magcarlnxqasa
+magcarlnxqasd
+magnetapp
+magcarlnxQ40a
+magcarlnxQ40d
+mbgcarlnxQST
+magcarllnw01
+magcarlnxcsma
+magcarlnxcsmd
+magcarlnxcsda
+magcarlnxcsdd
+magcarlnxcdmo
+magcarlnxdmoq
+hoxspq01
+magirvlnxcdmo
+magirvlnxcsma
+magirvlnxcsm1
+magirvlnxprda
+magirvlnxprdd
+magirvlnxprd1
+magirvlnxprd2
+magirvlnxcsmd
+magirvlnxpfs1
+magirvlnxfgp
+magcarlnxcssa
+magcarlnxcssd
+magcarcsmaaix
+magcarlnxs05
+magcarlnxd05
+magcarlnxd06
+magirvlnxp05a
+magirvlnxp05d
+magirvlnxp06a
+magirvlnxp06d
+magcarlnxq05a
+magcarlnxq05d
+magcarlnxcsmr
+magcarlnxprdr
+magcarlnxq0a
+magirvlnxp0a
+magirvlnxph1a
+magirvlnxph1d
+magcarlnxdh1a
+magcarlnxdh1d
+magcarlnxsbxd
+magcarlnxsbxa
+magcarlnxmd3d1
+magcarlnxmd4a
+magcarlnxqsta
+magcarlnxqstd
+[root@magcarlnxdmo ansible]# ls
+ansible.cfg  ansible.cfg.rpmnew  audit  hosts  inventory  playbooks  roles
+[root@magcarlnxdmo ansible]# ls -al
+total 80
+drwxr-xr-x.   5 root root  4096 Feb  5 02:45 .
+drwxr-xr-x. 128 root root  8192 Feb  5 04:24 ..
+-rw-r--r--.   1 root root 17818 May  6  2020 ansible.cfg
+-rw-r--r--.   1 root root 19980 Aug 16  2019 ansible.cfg.rpmnew
+-rw-r--r--.   1 root root    36 Jan 28 15:36 audit
+-rw-r--r--.   1 root root  5680 Feb  5 02:45 hosts
+drwxr-xr-x.   2 root root  4096 Feb  1 15:27 inventory
+drwxr-xr-x.   2 root root  4096 Feb  5 05:37 playbooks
+drwxr-xr-x.   6 root root  4096 Feb  5 04:32 roles
+[root@magcarlnxdmo ansible]# cd inventory
+[root@magcarlnxdmo inventory]# ls -la
+total 144
+drwxr-xr-x. 2 root root 4096 Feb  1 15:27 .
+drwxr-xr-x. 5 root root 4096 Feb  5 02:45 ..
+-rw-r--r--. 1 root root  401 Aug 23  2019 28servers
+-rw-r--r--. 1 root root  138 Jul 30  2019 9servers
+-rw-r--r--. 1 root root  372 May 19  2020 allhosts
+-rw-r--r--. 1 root root  432 Oct 30  2019 allhosts2
+-rw-r--r--. 1 root root  922 Oct  8 13:42 allservers
+-rw-r--r--. 1 root root   25 Mar 25  2019 basisnew
+-rw-r--r--. 1 root root   24 Nov 17  2019 carcsmr
+-rw-r--r--. 1 root root   93 Nov 24  2018 cosma
+-rw-r--r--. 1 root root   21 Oct 18  2019 csdd
+-rw-r--r--. 1 root root   19 Mar  2  2020 d05
+-rw-r--r--. 1 root root  117 Jan 31  2020 dbhosts
+-rw-r--r--. 1 root root   20 Oct 22 14:38 demo
+-rw-r--r--. 1 root root  297 Sep 10  2019 extraservers
+-rw-r--r--. 1 root root   38 Oct  6 16:10 install
+-rw-r--r--. 1 root root   36 Apr 11  2019 listofservers
+-rw-r--r--. 1 root root  420 Nov 11 14:09 magnaservers
+-rw-r--r--. 1 root root  545 Apr 12  2019 main
+-rw-r--r--. 1 root root  283 Apr  9  2019 monaliservers
+-rw-r--r--. 1 root root   41 Oct 15 16:52 networker
+-rw-r--r--. 1 root root   34 Mar 13  2020 p05
+-rw-r--r--. 1 root root  146 Oct 25 03:13 p40
+-rw-r--r--. 1 root root   21 Mar 23  2020 pfs1
+-rw-r--r--. 1 root root  130 Sep  5  2019 PRDlandscape
+-rw-r--r--. 1 root root  107 Jan 29 19:45 prdp40
+-rw-r--r--. 1 root root   19 Jun 17  2019 q05
+-rw-r--r--. 1 root root   64 May 16  2019 rotor
+-rw-r--r--. 1 root root   37 Aug  1  2019 rotord
+-rw-r--r--. 1 root root   66 Oct 21 12:11 s4hana
+-rw-r--r--. 1 root root   61 Nov 14  2018 sap
+-rw-r--r--. 1 root root   38 Feb  1 15:27 saproot
+-rw-r--r--. 1 root root  122 Apr 22  2019 specificserverlist
+-rw-r--r--. 1 root root  366 Jun 18  2019 test
+-rw-r--r--. 1 root root  257 Oct 30 20:28 time
+-rw-r--r--. 1 root root  499 Oct 29 15:53 time-servers
+[root@magcarlnxdmo inventory]# cd ..
+[root@magcarlnxdmo ansible]# ls -la
+total 80
+drwxr-xr-x.   5 root root  4096 Feb  5 02:45 .
+drwxr-xr-x. 128 root root  8192 Feb  5 04:24 ..
+-rw-r--r--.   1 root root 17818 May  6  2020 ansible.cfg
+-rw-r--r--.   1 root root 19980 Aug 16  2019 ansible.cfg.rpmnew
+-rw-r--r--.   1 root root    36 Jan 28 15:36 audit
+-rw-r--r--.   1 root root  5680 Feb  5 02:45 hosts
+drwxr-xr-x.   2 root root  4096 Feb  1 15:27 inventory
+drwxr-xr-x.   2 root root  4096 Feb  5 05:37 playbooks
+drwxr-xr-x.   6 root root  4096 Feb  5 04:32 roles
+[root@magcarlnxdmo ansible]# cat ansible.cfg
+# config file for ansible -- https://ansible.com/
+# ===============================================
+
+# nearly all parameters can be overridden in ansible-playbook
+# or with command line flags. ansible will read ANSIBLE_CONFIG,
+# ansible.cfg in the current working directory, .ansible.cfg in
+# the home directory or /etc/ansible/ansible.cfg, whichever it
+# finds first
+
+[defaults]
+host_key_checking = false
+invalid_task_attribute_failed = false
+
+# some basic default values...
+
+#inventory      = /etc/ansible/hosts
+inventory       = /etc/ansible/inventory
+#library        = /usr/share/my_modules/
+#module_utils   = /usr/share/my_module_utils/
+#remote_tmp     = ~/.ansible/tmp
+#local_tmp      = ~/.ansible/tmp
+#forks          = 5
+#poll_interval  = 15
+#sudo_user      = root
+#ask_sudo_pass = True
+#ask_pass      = True
+#transport      = smart
+#remote_port    = 22
+#module_lang    = C
+#module_set_locale = False
+
+# plays will gather facts by default, which contain information about
+# the remote system.
+#
+# smart - gather by default, but don't regather if already gathered
+# implicit - gather by default, turn off with gather_facts: False
+# explicit - do not gather by default, must say gather_facts: True
+#gathering = implicit
+
+# This only affects the gathering done by a play's gather_facts directive,
+# by default gathering retrieves all facts subsets
+# all - gather all subsets
+# network - gather min and network facts
+# hardware - gather hardware facts (longest facts to retrieve)
+# virtual - gather min and virtual facts
+# facter - import facts from facter
+# ohai - import facts from ohai
+# You can combine them using comma (ex: network,virtual)
+# You can negate them using ! (ex: !hardware,!facter,!ohai)
+# A minimal set of facts is always gathered.
+#gather_subset = all
+
+# some hardware related facts are collected
+# with a maximum timeout of 10 seconds. This
+# option lets you increase or decrease that
+# timeout to something more suitable for the
+# environment.
+# gather_timeout = 10
+
+# additional paths to search for roles in, colon separated
+#roles_path    = /etc/ansible/roles
+
+# uncomment this to disable SSH key host checking
+#host_key_checking = False
+
+# change the default callback
+#stdout_callback = skippy
+# enable additional callbacks
+#callback_whitelist = timer, mail
+
+# Determine whether includes in tasks and handlers are "static" by
+# default. As of 2.0, includes are dynamic by default. Setting these
+# values to True will make includes behave more like they did in the
+# 1.x versions.
+#task_includes_static = True
+#handler_includes_static = True
+
+# Controls if a missing handler for a notification event is an error or a warning
+#error_on_missing_handler = True
+
+# change this for alternative sudo implementations
+#sudo_exe = sudo
+
+# What flags to pass to sudo
+# WARNING: leaving out the defaults might create unexpected behaviours
+#sudo_flags = -H -S -n
+
+# SSH timeout
+#timeout = 10
+
+# default user to use for playbooks if user is not specified
+# (/usr/bin/ansible will use current user as default)
+#remote_user = root
+
+# logging is off by default unless this path is defined
+# if so defined, consider logrotate
+#log_path = /var/log/ansible.log
+
+# default module name for /usr/bin/ansible
+#module_name = command
+
+# use this shell for commands executed under sudo
+# you may need to change this to bin/bash in rare instances
+# if sudo is constrained
+#executable = /bin/sh
+
+# if inventory variables overlap, does the higher precedence one win
+# or are hash values merged together?  The default is 'replace' but
+# this can also be set to 'merge'.
+#hash_behaviour = replace
+
+# by default, variables from roles will be visible in the global variable
+# scope. To prevent this, the following option can be enabled, and only
+# tasks and handlers within the role will see the variables there
+#private_role_vars = yes
+
+# list any Jinja2 extensions to enable here:
+#jinja2_extensions = jinja2.ext.do,jinja2.ext.i18n
+
+# if set, always use this private key file for authentication, same as
+# if passing --private-key to ansible or ansible-playbook
+#private_key_file = /path/to/file
+
+# If set, configures the path to the Vault password file as an alternative to
+# specifying --vault-password-file on the command line.
+#vault_password_file = /path/to/vault_password_file
+
+# format of string {{ ansible_managed }} available within Jinja2
+# templates indicates to users editing templates files will be replaced.
+# replacing {file}, {host} and {uid} and strftime codes with proper values.
+#ansible_managed = Ansible managed: {file} modified on %Y-%m-%d %H:%M:%S by {uid} on {host}
+# {file}, {host}, {uid}, and the timestamp can all interfere with idempotence
+# in some situations so the default is a static string:
+#ansible_managed = Ansible managed
+
+# by default, ansible-playbook will display "Skipping [host]" if it determines a task
+# should not be run on a host.  Set this to "False" if you don't want to see these "Skipping"
+# messages. NOTE: the task header will still be shown regardless of whether or not the
+# task is skipped.
+#display_skipped_hosts = True
+
+# by default, if a task in a playbook does not include a name: field then
+# ansible-playbook will construct a header that includes the task's action but
+# not the task's args.  This is a security feature because ansible cannot know
+# if the *module* considers an argument to be no_log at the time that the
+# header is printed.  If your environment doesn't have a problem securing
+# stdout from ansible-playbook (or you have manually specified no_log in your
+# playbook on all of the tasks where you have secret information) then you can
+# safely set this to True to get more informative messages.
+#display_args_to_stdout = False
+
+# by default (as of 1.3), Ansible will raise errors when attempting to dereference
+# Jinja2 variables that are not set in templates or action lines. Uncomment this line
+# to revert the behavior to pre-1.3.
+#error_on_undefined_vars = False
+
+# by default (as of 1.6), Ansible may display warnings based on the configuration of the
+# system running ansible itself. This may include warnings about 3rd party packages or
+# other conditions that should be resolved if possible.
+# to disable these warnings, set the following value to False:
+#system_warnings = True
+
+# by default (as of 1.4), Ansible may display deprecation warnings for language
+# features that should no longer be used and will be removed in future versions.
+# to disable these warnings, set the following value to False:
+#deprecation_warnings = True
+
+# (as of 1.8), Ansible can optionally warn when usage of the shell and
+# command module appear to be simplified by using a default Ansible module
+# instead.  These warnings can be silenced by adjusting the following
+# setting or adding warn=yes or warn=no to the end of the command line
+# parameter string.  This will for example suggest using the git module
+# instead of shelling out to the git command.
+# command_warnings = False
+
+
+# set plugin path directories here, separate with colons
+#action_plugins     = /usr/share/ansible/plugins/action
+#cache_plugins      = /usr/share/ansible/plugins/cache
+#callback_plugins   = /usr/share/ansible/plugins/callback
+#connection_plugins = /usr/share/ansible/plugins/connection
+#lookup_plugins     = /usr/share/ansible/plugins/lookup
+#inventory_plugins  = /usr/share/ansible/plugins/inventory
+#vars_plugins       = /usr/share/ansible/plugins/vars
+#filter_plugins     = /usr/share/ansible/plugins/filter
+#test_plugins       = /usr/share/ansible/plugins/test
+#terminal_plugins   = /usr/share/ansible/plugins/terminal
+#strategy_plugins   = /usr/share/ansible/plugins/strategy
+
+
+# by default, ansible will use the 'linear' strategy but you may want to try
+# another one
+#strategy = free
+
+# by default callbacks are not loaded for /bin/ansible, enable this if you
+# want, for example, a notification or logging callback to also apply to
+# /bin/ansible runs
+#bin_ansible_callbacks = False
+
+
+# don't like cows?  that's unfortunate.
+# set to 1 if you don't want cowsay support or export ANSIBLE_NOCOWS=1
+#nocows = 1
+
+# set which cowsay stencil you'd like to use by default. When set to 'random',
+# a random stencil will be selected for each task. The selection will be filtered
+# against the `cow_whitelist` option below.
+#cow_selection = default
+#cow_selection = random
+
+# when using the 'random' option for cowsay, stencils will be restricted to this list.
+# it should be formatted as a comma-separated list with no spaces between names.
+# NOTE: line continuations here are for formatting purposes only, as the INI parser
+#       in python does not support them.
+#cow_whitelist=bud-frogs,bunny,cheese,daemon,default,dragon,elephant-in-snake,elephant,eyes,\
+#              hellokitty,kitty,luke-koala,meow,milk,moofasa,moose,ren,sheep,small,stegosaurus,\
+#              stimpy,supermilker,three-eyes,turkey,turtle,tux,udder,vader-koala,vader,www
+
+# don't like colors either?
+# set to 1 if you don't want colors, or export ANSIBLE_NOCOLOR=1
+#nocolor = 1
+
+# if set to a persistent type (not 'memory', for example 'redis') fact values
+# from previous runs in Ansible will be stored.  This may be useful when
+# wanting to use, for example, IP information from one group of servers
+# without having to talk to them in the same playbook run to get their
+# current IP information.
+#fact_caching = memory
+
+
+# retry files
+# When a playbook fails by default a .retry file will be created in ~/
+# You can disable this feature by setting retry_files_enabled to False
+# and you can change the location of the files by setting retry_files_save_path
+
+#retry_files_enabled = False
+#retry_files_save_path = ~/.ansible-retry
+
+# squash actions
+# Ansible can optimise actions that call modules with list parameters
+# when looping. Instead of calling the module once per with_ item, the
+# module is called once with all items at once. Currently this only works
+# under limited circumstances, and only with parameters named 'name'.
+#squash_actions = apk,apt,dnf,homebrew,pacman,pkgng,yum,zypper
+
+# prevents logging of task data, off by default
+#no_log = False
+
+# prevents logging of tasks, but only on the targets, data is still logged on the master/controller
+#no_target_syslog = False
+
+# controls whether Ansible will raise an error or warning if a task has no
+# choice but to create world readable temporary files to execute a module on
+# the remote machine.  This option is False by default for security.  Users may
+# turn this on to have behaviour more like Ansible prior to 2.1.x.  See
+# https://docs.ansible.com/ansible/become.html#becoming-an-unprivileged-user
+# for more secure ways to fix this than enabling this option.
+#allow_world_readable_tmpfiles = False
+
+# controls the compression level of variables sent to
+# worker processes. At the default of 0, no compression
+# is used. This value must be an integer from 0 to 9.
+#var_compression_level = 9
+
+# controls what compression method is used for new-style ansible modules when
+# they are sent to the remote system.  The compression types depend on having
+# support compiled into both the controller's python and the client's python.
+# The names should match with the python Zipfile compression types:
+# * ZIP_STORED (no compression. available everywhere)
+# * ZIP_DEFLATED (uses zlib, the default)
+# These values may be set per host via the ansible_module_compression inventory
+# variable
+#module_compression = 'ZIP_DEFLATED'
+
+# This controls the cutoff point (in bytes) on --diff for files
+# set to 0 for unlimited (RAM may suffer!).
+#max_diff_size = 1048576
+
+# This controls how ansible handles multiple --tags and --skip-tags arguments
+# on the CLI.  If this is True then multiple arguments are merged together.  If
+# it is False, then the last specified argument is used and the others are ignored.
+#merge_multiple_cli_flags = False
+
+# Controls showing custom stats at the end, off by default
+#show_custom_stats = True
+
+# Controlls which files to ignore when using a directory as inventory with
+# possibly multiple sources (both static and dynamic)
+#inventory_ignore_extensions = ~, .orig, .bak, .ini, .cfg, .retry, .pyc, .pyo
+
+# This family of modules use an alternative execution path optimized for network appliances
+# only update this setting if you know how this works, otherwise it can break module execution
+#network_group_modules=['eos', 'nxos', 'ios', 'iosxr', 'junos', 'vyos']
+
+[privilege_escalation]
+#become=True
+#become_method=sudo
+#become_user=root
+#become_ask_pass=False
+
+[paramiko_connection]
+
+# uncomment this line to cause the paramiko connection plugin to not record new host
+# keys encountered.  Increases performance on new host additions.  Setting works independently of the
+# host key checking setting above.
+#record_host_keys=False
+
+# by default, Ansible requests a pseudo-terminal for commands executed under sudo. Uncomment this
+# line to disable this behaviour.
+#pty=False
+
+# paramiko will default to looking for SSH keys initially when trying to
+# authenticate to remote devices.  This is a problem for some network devices
+# that close the connection after a key failure.  Uncomment this line to
+# disable the Paramiko look for keys function
+#look_for_keys = False
+
+# When using persistent connections with Paramiko, the connection runs in a
+# background process.  If the host doesn't already have a valid SSH key, by
+# default Ansible will prompt to add the host key.  This will cause connections
+# running in background processes to fail.  Uncomment this line to have
+# Paramiko automatically add host keys.
+#host_key_auto_add = True
+
+[ssh_connection]
+
+# ssh arguments to use
+# Leaving off ControlPersist will result in poor performance, so use
+# paramiko on older platforms rather than removing it, -C controls compression use
+#ssh_args = -C -o ControlMaster=auto -o ControlPersist=60s
+
+# The base directory for the ControlPath sockets.
+# This is the "%(directory)s" in the control_path option
+#
+# Example:
+# control_path_dir = /tmp/.ansible/cp
+#control_path_dir = ~/.ansible/cp
+
+# The path to use for the ControlPath sockets. This defaults to a hashed string of the hostname,
+# port and username (empty string in the config). The hash mitigates a common problem users
+# found with long hostames and the conventional %(directory)s/ansible-ssh-%%h-%%p-%%r format.
+# In those cases, a "too long for Unix domain socket" ssh error would occur.
+#
+# Example:
+# control_path = %(directory)s/%%h-%%r
+#control_path =
+
+# Enabling pipelining reduces the number of SSH operations required to
+# execute a module on the remote server. This can result in a significant
+# performance improvement when enabled, however when using "sudo:" you must
+# first disable 'requiretty' in /etc/sudoers
+#
+# By default, this option is disabled to preserve compatibility with
+# sudoers configurations that have requiretty (the default on many distros).
+#
+#pipelining = False
+
+# Control the mechanism for transferring files (old)
+#   * smart = try sftp and then try scp [default]
+#   * True = use scp only
+#   * False = use sftp only
+#scp_if_ssh = smart
+
+# Control the mechanism for transferring files (new)
+# If set, this will override the scp_if_ssh option
+#   * sftp  = use sftp to transfer files
+#   * scp   = use scp to transfer files
+#   * piped = use 'dd' over SSH to transfer files
+#   * smart = try sftp, scp, and piped, in that order [default]
+#transfer_method = smart
+
+# if False, sftp will not use batch mode to transfer files. This may cause some
+# types of file transfer failures impossible to catch however, and should
+# only be disabled if your sftp version has problems with batch mode
+#sftp_batch_mode = False
+
+[persistent_connection]
+
+# Configures the persistent connection timeout value in seconds.  This value is
+# how long the persistent connection will remain idle before it is destroyed.
+# If the connection doesn't receive a request before the timeout value
+# expires, the connection is shutdown.  The default value is 30 seconds.
+connect_timeout = 30
+
+# Configures the persistent connection retries.  This value configures the
+# number of attempts the ansible-connection will make when trying to connect
+# to the local domain socket.  The default value is 30.
+connect_retries = 30
+
+# Configures the amount of time in seconds to wait between connection attempts
+# to the local unix domain socket.  This value works in conjunction with the
+# connect_retries value to define how long to try to connect to the local
+# domain socket when setting up a persistent connection.  The default value is
+# 1 second.
+connect_interval = 1
+
+[accelerate]
+#accelerate_port = 5099
+#accelerate_timeout = 30
+#accelerate_connect_timeout = 5.0
+
+# The daemon timeout is measured in minutes. This time is measured
+# from the last activity to the accelerate daemon.
+#accelerate_daemon_timeout = 30
+
+# If set to yes, accelerate_multi_key will allow multiple
+# private keys to be uploaded to it, though each user must
+# have access to the system via SSH to add a new key. The default
+# is "no".
+#accelerate_multi_key = yes
+
+[selinux]
+# file systems that require special treatment when dealing with security context
+# the default behaviour that copies the existing context or uses the user default
+# needs to be changed to use the file system dependent context.
+#special_context_filesystems=nfs,vboxsf,fuse,ramfs,9p
+
+# Set this to yes to allow libvirt_lxc connections to work without SELinux.
+#libvirt_lxc_noseclabel = yes
+
+[colors]
+#highlight = white
+#verbose = blue
+#warn = bright purple
+#error = red
+#debug = dark gray
+#deprecate = purple
+#skip = cyan
+#unreachable = red
+#ok = green
+#changed = yellow
+#diff_add = green
+#diff_remove = red
+#diff_lines = cyan
+
+
+[diff]
+# Always print diff when running ( same as always running with -D/--diff )
+# always = no
+
+# Set how many context lines to show in diff
+# context = 3
+
+[root@magcarlnxdmo ansible]# grep -i inventory ansible.cfg
+#inventory      = /etc/ansible/hosts
+inventory       = /etc/ansible/inventory
+# if inventory variables overlap, does the higher precedence one win
+#inventory_plugins  = /usr/share/ansible/plugins/inventory
+# These values may be set per host via the ansible_module_compression inventory
+# Controlls which files to ignore when using a directory as inventory with
+#inventory_ignore_extensions = ~, .orig, .bak, .ini, .cfg, .retry, .pyc, .pyo
+[root@magcarlnxdmo ansible]# cd /etc/ansible/inventory
+[root@magcarlnxdmo inventory]# ls -la
+total 144
+drwxr-xr-x. 2 root root 4096 Feb  1 15:27 .
+drwxr-xr-x. 5 root root 4096 Feb  5 02:45 ..
+-rw-r--r--. 1 root root  401 Aug 23  2019 28servers
+-rw-r--r--. 1 root root  138 Jul 30  2019 9servers
+-rw-r--r--. 1 root root  372 May 19  2020 allhosts
+-rw-r--r--. 1 root root  432 Oct 30  2019 allhosts2
+-rw-r--r--. 1 root root  922 Oct  8 13:42 allservers
+-rw-r--r--. 1 root root   25 Mar 25  2019 basisnew
+-rw-r--r--. 1 root root   24 Nov 17  2019 carcsmr
+-rw-r--r--. 1 root root   93 Nov 24  2018 cosma
+-rw-r--r--. 1 root root   21 Oct 18  2019 csdd
+-rw-r--r--. 1 root root   19 Mar  2  2020 d05
+-rw-r--r--. 1 root root  117 Jan 31  2020 dbhosts
+-rw-r--r--. 1 root root   20 Oct 22 14:38 demo
+-rw-r--r--. 1 root root  297 Sep 10  2019 extraservers
+-rw-r--r--. 1 root root   38 Oct  6 16:10 install
+-rw-r--r--. 1 root root   36 Apr 11  2019 listofservers
+-rw-r--r--. 1 root root  420 Nov 11 14:09 magnaservers
+-rw-r--r--. 1 root root  545 Apr 12  2019 main
+-rw-r--r--. 1 root root  283 Apr  9  2019 monaliservers
+-rw-r--r--. 1 root root   41 Oct 15 16:52 networker
+-rw-r--r--. 1 root root   34 Mar 13  2020 p05
+-rw-r--r--. 1 root root  146 Oct 25 03:13 p40
+-rw-r--r--. 1 root root   21 Mar 23  2020 pfs1
+-rw-r--r--. 1 root root  130 Sep  5  2019 PRDlandscape
+-rw-r--r--. 1 root root  107 Jan 29 19:45 prdp40
+-rw-r--r--. 1 root root   19 Jun 17  2019 q05
+-rw-r--r--. 1 root root   64 May 16  2019 rotor
+-rw-r--r--. 1 root root   37 Aug  1  2019 rotord
+-rw-r--r--. 1 root root   66 Oct 21 12:11 s4hana
+-rw-r--r--. 1 root root   61 Nov 14  2018 sap
+-rw-r--r--. 1 root root   38 Feb  1 15:27 saproot
+-rw-r--r--. 1 root root  122 Apr 22  2019 specificserverlist
+-rw-r--r--. 1 root root  366 Jun 18  2019 test
+-rw-r--r--. 1 root root  257 Oct 30 20:28 time
+-rw-r--r--. 1 root root  499 Oct 29 15:53 time-servers
+[root@magcarlnxdmo inventory]# cat allhosts
+[allhosts]
+magcarlnxdmo
+magirvlnxprda
+magirvlnxprdd
+magirvlnxprd1
+magirvlnxprd2
+magirvlnxpfs1
+magcarlnxqasa
+magcarlnxqasd
+magcarlnxfgd
+magirvlnxfgp
+magcarlnxmd3a
+magcarlnxmd3d
+magirvlnxcsma
+magirvlnxcsm1
+magirvlnxcsmd
+magcarlnxcsma
+magcarlnxcsmd
+magcarlnxcsda
+magcarlnxcsdd
+magcarlnxcssa
+magcarlnxcssd
+magcarlnxdmoq
+magcarlnxcsmr
+magcarlnxprdr
+magcarlnxsbxa
+magcarlnxsbxd
+[root@magcarlnxdmo inventory]# cat allhosts |wc -l
+27
+[root@magcarlnxdmo inventory]# cd /etc/ansible
+[root@magcarlnxdmo ansible]# ls
+ansible.cfg  ansible.cfg.rpmnew  audit  hosts  inventory  playbooks  roles
+[root@magcarlnxdmo ansible]# cd playbooks
+[root@magcarlnxdmo playbooks]# ls -la
+total 116
+drwxr-xr-x. 2 root     root    4096 Feb  5 05:37 .
+drwxr-xr-x. 5 root     root    4096 Feb  5 02:45 ..
+-rw-r--r--. 1 root     root     239 Jul  3  2019 1
+-rw-r--r--. 1 root     root     653 Mar 23  2020 addsaproot.yml
+-rw-r--r--. 1 root     unixadm  651 Jul  6  2018 basisadduser.yml
+-rw-r--r--. 1 root     root      13 Jul  3  2019 change-lijo.retry
+-rw-r--r--. 1 root     root     308 May 14  2019 change-lijo.yml
+-rw-r--r--. 1 root     root      13 Jul  3  2019 change-passwd-lgorantl.retry
+-rw-r--r--. 1 root     root     244 Jul  3  2019 change-passwd-lgorantl.yml
+-rw-r--r--. 1 root     root     386 Oct 27  2018 change-passwd.retry
+-rw-r--r--. 1 root     unixadm  304 Oct 27  2018 change-passwd.yml
+-rw-r--r--. 1 root     root     293 Nov  2 04:50 change-swoo-passwd.yml
+-rw-r--r--. 1 root     root      22 Jul 29  2018 change-vapin-passwd.retry
+-rw-r--r--. 1 root     unixadm  295 Feb  5 04:22 change-vapin-passwd.yml
+-rw-r--r--. 1 root     unixadm  183 Jul  6  2018 copy-file.yml
+-rw-r--r--. 1 root     unixadm  276 Apr 11  2019 irvingbackuproute.yml
+-rw-r--r--. 1 root     unixadm  142 Jul  6  2018 irving-route-eno50338560
+-rw-r--r--. 1 root     root      14 Mar 22  2019 magna.retry
+-rw-r--r--. 1 root     unixadm  598 Oct  1 16:24 magna.yml
+-rw-r--r--. 1 root     root      81 Mar 23  2020 removesaproot
+-rw-r--r--. 1 root     root      28 Feb 28  2019 searchcifs.retry
+-rw-r--r--. 1 root     root     141 Feb 28  2019 searchcifs.yml
+-rw-r--r--. 1 csomayaj unixadm   21 Feb  5 05:26 test.txt
+-rw-r--r--. 1 root     root     228 Oct 25 03:13 time-magna.yml
+-rw-r--r--. 1 root     root     163 Nov 16 21:10 time-zone.yml
+-rw-r--r--. 1 root     root     231 Nov 16 20:53 time.zone.yml
+-rw-r--r--. 1 root     root     167 Sep 17  2019 tmout.yml
+-rw-r--r--. 1 csomayaj unixadm  664 Feb  5 05:31 uptime_chdnar.yml
+-rw-r--r--. 1 root     root      88 Feb  5 01:28 uptime.yml
+[root@magcarlnxdmo playbooks]# cat uptime_chdnar.yml
+## query.yml
+#### This playbook is for creating querys to various RHEL versions
+#
+#
+#- hosts: test
+#  become: yes
+#
+#    tasks:
+#    #"ansible_distribution_major_version"
+#       - name: QUERY_uname
+#            shell: "uname -n;uptime"
+#            #     when: ansible_os_family == 'RedHat'
+#                 register: query1
+#                 #
+#                 #   - name: QUERY_uptime
+#                 #     shell: uptime
+#                 #     when: ansible_distribution == 'RedHat'
+#                 #     register: query2
+#                 #
+#                    - debug: var=query1.stdout_lines
+#                    #   - debug: var=query2.stdout_lines
+[root@magcarlnxdmo playbooks]# cat uptime.yml
+---
+
+- hosts: all
+  gather_facts: False
+  tasks:
+  - name: run uptime
+    shell: uptime
+[root@magcarlnxdmo playbooks]# vi uptime.yml
+[root@magcarlnxdmo playbooks]# ansible-playbook -i /etc/hosts uptime.yml
+ [WARNING]:  * Failed to parse /etc/hosts with yaml plugin: Syntax Error while loading YAML.   did not find expected <document start>  The error appears to be in
+'/etc/hosts': line 37, column 1, but may be elsewhere in the file depending on the exact syntax problem.  The offending line appears to be:  #10.12.0.26
+magcarcsmaaix caraix 10.12.0.26      magcarlnxs05 s05 ^ here There appears to be a tab character at the start of the line.  YAML does not use tabs for formatting. Tabs
+should be replaced with spaces.  For example:     - name: update tooling       vars:         version: 1.2.3 #    ^--- there is a tab there.  Should be written as:
+- name: update tooling       vars:         version: 1.2.3 # ^--- all spaces here.
+
+ [WARNING]:  * Failed to parse /etc/hosts with ini plugin: /etc/hosts:1: Expected key=value host variable assignment, got: localhost
+
+ [WARNING]: Unable to parse /etc/hosts as an inventory source
+
+ [WARNING]: No inventory was parsed, only implicit localhost is available
+
+ [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+ [WARNING]: Could not match supplied host pattern, ignoring: allhosts
+
+
+PLAY [allhosts] ********************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY RECAP *************************************************************************************************************************************************************
+
+[root@magcarlnxdmo playbooks]# ansible-playbook uptime.yml -u bchoda
+[DEPRECATION WARNING]: The TRANSFORM_INVALID_GROUP_CHARS settings is set to allow bad characters in group names by default, this will change, but still be user
+configurable on deprecation. This feature will be removed in version 2.10. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+ [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+
+PLAY [allhosts] ********************************************************************************************************************************************************
+
+TASK [run uptime] ******************************************************************************************************************************************************
+fatal: [magcarlnxdmo]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magirvlnxprd2]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magirvlnxprda]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magirvlnxprd1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magirvlnxpfs1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magcarlnxqasd]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magirvlnxprdd]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magcarlnxfgd]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magirvlnxfgp]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magcarlnxmd3d]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magcarlnxqasa]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magcarlnxmd3a]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magirvlnxcsm1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magcarlnxcsma]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magirvlnxcsmd]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magirvlnxcsma]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magcarlnxcsmd]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magcarlnxcsda]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magcarlnxdmoq]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magcarlnxcsdd]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magcarlnxcssd]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magcarlnxcssa]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magcarlnxsbxd]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magcarlnxcsmr]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magcarlnxprdr]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+fatal: [magcarlnxsbxa]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+
+PLAY RECAP *************************************************************************************************************************************************************
+magcarlnxcsda              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxcsdd              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxcsma              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxcsmd              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxcsmr              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxcssa              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxcssd              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxdmo               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxdmoq              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxfgd               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxmd3a              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxmd3d              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxprdr              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxqasa              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxqasd              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxsbxa              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxsbxd              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxcsm1              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxcsma              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxcsmd              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxfgp               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxpfs1              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxprd1              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxprd2              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxprda              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxprdd              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+
+[root@magcarlnxdmo playbooks]# ansible-playbook uptime.yml -u bchoda -k
+SSH password:
+[DEPRECATION WARNING]: The TRANSFORM_INVALID_GROUP_CHARS settings is set to allow bad characters in group names by default, this will change, but still be user
+configurable on deprecation. This feature will be removed in version 2.10. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+ [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+
+PLAY [allhosts] ********************************************************************************************************************************************************
+
+TASK [run uptime] ******************************************************************************************************************************************************
+changed: [magcarlnxdmo]
+changed: [magirvlnxprd2]
+changed: [magirvlnxprda]
+changed: [magirvlnxprd1]
+changed: [magirvlnxprdd]
+changed: [magirvlnxpfs1]
+changed: [magcarlnxfgd]
+changed: [magirvlnxfgp]
+changed: [magcarlnxqasd]
+changed: [magcarlnxmd3d]
+changed: [magirvlnxcsm1]
+changed: [magcarlnxcsma]
+changed: [magirvlnxcsmd]
+fatal: [magirvlnxcsma]: UNREACHABLE! => {"changed": false, "msg": "Invalid/incorrect password: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied, please try again.", "unreachable": true}
+changed: [magcarlnxcsmd]
+changed: [magcarlnxcsda]
+changed: [magcarlnxcsdd]
+changed: [magcarlnxcssa]
+changed: [magcarlnxcssd]
+fatal: [magcarlnxdmoq]: UNREACHABLE! => {"changed": false, "msg": "Invalid/incorrect password: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied, please try again.", "unreachable": true}
+changed: [magcarlnxprdr]
+changed: [magcarlnxcsmr]
+changed: [magcarlnxqasa]
+fatal: [magcarlnxsbxd]: UNREACHABLE! => {"changed": false, "msg": "Invalid/incorrect password: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied, please try again.", "unreachable": true}
+changed: [magcarlnxmd3a]
+fatal: [magcarlnxsbxa]: UNREACHABLE! => {"changed": false, "msg": "Invalid/incorrect password: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied, please try again.", "unreachable": true}
+
+PLAY RECAP *************************************************************************************************************************************************************
+magcarlnxcsda              : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxcsdd              : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxcsma              : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxcsmd              : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxcsmr              : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxcssa              : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxcssd              : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxdmo               : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxdmoq              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxfgd               : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxmd3a              : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxmd3d              : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxprdr              : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxqasa              : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxqasd              : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxsbxa              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxsbxd              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxcsm1              : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxcsma              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxcsmd              : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxfgp               : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxpfs1              : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxprd1              : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxprd2              : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxprda              : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxprdd              : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[root@magcarlnxdmo playbooks]# ls -la
+total 116
+drwxr-xr-x. 2 root     root    4096 Feb  5 09:21 .
+drwxr-xr-x. 5 root     root    4096 Feb  5 02:45 ..
+-rw-r--r--. 1 root     root     239 Jul  3  2019 1
+-rw-r--r--. 1 root     root     653 Mar 23  2020 addsaproot.yml
+-rw-r--r--. 1 root     unixadm  651 Jul  6  2018 basisadduser.yml
+-rw-r--r--. 1 root     root      13 Jul  3  2019 change-lijo.retry
+-rw-r--r--. 1 root     root     308 May 14  2019 change-lijo.yml
+-rw-r--r--. 1 root     root      13 Jul  3  2019 change-passwd-lgorantl.retry
+-rw-r--r--. 1 root     root     244 Jul  3  2019 change-passwd-lgorantl.yml
+-rw-r--r--. 1 root     root     386 Oct 27  2018 change-passwd.retry
+-rw-r--r--. 1 root     unixadm  304 Oct 27  2018 change-passwd.yml
+-rw-r--r--. 1 root     root     293 Nov  2 04:50 change-swoo-passwd.yml
+-rw-r--r--. 1 root     root      22 Jul 29  2018 change-vapin-passwd.retry
+-rw-r--r--. 1 root     unixadm  295 Feb  5 04:22 change-vapin-passwd.yml
+-rw-r--r--. 1 root     unixadm  183 Jul  6  2018 copy-file.yml
+-rw-r--r--. 1 root     unixadm  276 Apr 11  2019 irvingbackuproute.yml
+-rw-r--r--. 1 root     unixadm  142 Jul  6  2018 irving-route-eno50338560
+-rw-r--r--. 1 root     root      14 Mar 22  2019 magna.retry
+-rw-r--r--. 1 root     unixadm  598 Oct  1 16:24 magna.yml
+-rw-r--r--. 1 root     root      81 Mar 23  2020 removesaproot
+-rw-r--r--. 1 root     root      28 Feb 28  2019 searchcifs.retry
+-rw-r--r--. 1 root     root     141 Feb 28  2019 searchcifs.yml
+-rw-r--r--. 1 csomayaj unixadm   21 Feb  5 05:26 test.txt
+-rw-r--r--. 1 root     root     228 Oct 25 03:13 time-magna.yml
+-rw-r--r--. 1 root     root     163 Nov 16 21:10 time-zone.yml
+-rw-r--r--. 1 root     root     231 Nov 16 20:53 time.zone.yml
+-rw-r--r--. 1 root     root     167 Sep 17  2019 tmout.yml
+-rw-r--r--. 1 csomayaj unixadm  664 Feb  5 05:31 uptime_chdnar.yml
+-rw-r--r--. 1 root     root      93 Feb  5 09:21 uptime.yml
+[root@magcarlnxdmo playbooks]# cat uptime_chdnar.yml
+## query.yml
+#### This playbook is for creating querys to various RHEL versions
+#
+#
+#- hosts: test
+#  become: yes
+#
+#    tasks:
+#    #"ansible_distribution_major_version"
+#       - name: QUERY_uname
+#            shell: "uname -n;uptime"
+#            #     when: ansible_os_family == 'RedHat'
+#                 register: query1
+#                 #
+#                 #   - name: QUERY_uptime
+#                 #     shell: uptime
+#                 #     when: ansible_distribution == 'RedHat'
+#                 #     register: query2
+#                 #
+#                    - debug: var=query1.stdout_lines
+#                    #   - debug: var=query2.stdout_lines
+[root@magcarlnxdmo playbooks]# vi uptime_chdnar.yml
+[root@magcarlnxdmo playbooks]# ansible-playbook --syntax-check uptime_chdnar.yml
+[DEPRECATION WARNING]: The TRANSFORM_INVALID_GROUP_CHARS settings is set to allow bad characters in group names by default, this will change, but still be user
+configurable on deprecation. This feature will be removed in version 2.10. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+ [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+ERROR! Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/etc/ansible/playbooks/uptime_chdnar.yml': line 8, column 10, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+    tasks:
+         ^ here
+
+[root@magcarlnxdmo playbooks]# cat uptime_chdnar.yml
+## query.yml
+#### This playbook is for creating querys to various RHEL versions
+
+
+- hosts: allhosts
+  become: yes
+
+    tasks:
+    - name: QUERY_uname
+      shell: "uname -n;uptime"
+      register: query1
+      - debug: var=query1.stdout_lines
+[root@magcarlnxdmo playbooks]# vi uptime_chdnar.yml
+[root@magcarlnxdmo playbooks]#
+[root@magcarlnxdmo playbooks]# ls
+1                  change-lijo.yml               change-passwd.yml          copy-file.yml             magna.yml         test.txt        tmout.yml
+addsaproot.yml     change-passwd-lgorantl.retry  change-swoo-passwd.yml     irvingbackuproute.yml     removesaproot     time-magna.yml  uptime_chdnar.yml
+basisadduser.yml   change-passwd-lgorantl.yml    change-vapin-passwd.retry  irving-route-eno50338560  searchcifs.retry  time-zone.yml   uptime.yml
+change-lijo.retry  change-passwd.retry           change-vapin-passwd.yml    magna.retry               searchcifs.yml    time.zone.yml
+[root@magcarlnxdmo playbooks]# vi chandrauptime.yml
+[root@magcarlnxdmo playbooks]# ansible-playbook --syntax-check chandrauptime.yml
+[DEPRECATION WARNING]: The TRANSFORM_INVALID_GROUP_CHARS settings is set to allow bad characters in group names by default, this will change, but still be user
+configurable on deprecation. This feature will be removed in version 2.10. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+ [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+
+playbook: chandrauptime.yml
+[root@magcarlnxdmo playbooks]# ansible-playbook chandrauptime.yml -u bchoda -k
+SSH password:
+[DEPRECATION WARNING]: The TRANSFORM_INVALID_GROUP_CHARS settings is set to allow bad characters in group names by default, this will change, but still be user
+configurable on deprecation. This feature will be removed in version 2.10. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+ [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+
+PLAY [allhosts] ********************************************************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************************************************
+ok: [magcarlnxdmo]
+ok: [magirvlnxprda]
+ok: [magirvlnxprdd]
+ok: [magirvlnxprd2]
+ok: [magirvlnxprd1]
+ok: [magirvlnxpfs1]
+ok: [magcarlnxqasd]
+ok: [magcarlnxfgd]
+ok: [magirvlnxfgp]
+ok: [magcarlnxmd3d]
+ok: [magirvlnxcsm1]
+fatal: [magirvlnxcsma]: UNREACHABLE! => {"changed": false, "msg": "Invalid/incorrect password: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied, please try again.", "unreachable": true}
+ok: [magcarlnxcsma]
+ok: [magcarlnxcsmd]
+ok: [magirvlnxcsmd]
+ok: [magcarlnxcsda]
+ok: [magcarlnxcssa]
+ok: [magcarlnxcsdd]
+fatal: [magcarlnxcsmr]: FAILED! => {"msg": "Missing sudo password"}
+ok: [magcarlnxcssd]
+fatal: [magcarlnxdmoq]: UNREACHABLE! => {"changed": false, "msg": "Invalid/incorrect password: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied, please try again.", "unreachable": true}
+ok: [magcarlnxprdr]
+fatal: [magcarlnxsbxd]: UNREACHABLE! => {"changed": false, "msg": "Invalid/incorrect password: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied, please try again.", "unreachable": true}
+ok: [magcarlnxqasa]
+ok: [magcarlnxmd3a]
+fatal: [magcarlnxsbxa]: UNREACHABLE! => {"changed": false, "msg": "Invalid/incorrect password: |-----------------------------------------------------------------|\n| This system is for the use of authorized users only.            |\n| Individuals using this computer system without authority, or in |\n| excess of their authority, are subject to having all of their   |\n| activities on this system monitored and recorded by system      |\n| personnel.                                                      |\n|                                                                 |\n| In the course of monitoring individuals improperly using this   |\n| system, or in the course of system maintenance, the activities  |\n| of authorized users may also be monitored.                      |\n|                                                                 |\n| Anyone using this system expressly consents to such monitoring  |\n| and is advised that if such monitoring reveals possible         |\n| evidence of criminal activity, system personnel may provide the |\n| evidence of such monitoring to law enforcement officials.       |\n|-----------------------------------------------------------------|\nPermission denied, please try again.", "unreachable": true}
+
+TASK [QUERY_uname] *****************************************************************************************************************************************************
+changed: [magcarlnxdmo]
+changed: [magirvlnxprd2]
+changed: [magirvlnxprd1]
+changed: [magirvlnxprda]
+changed: [magirvlnxprdd]
+changed: [magirvlnxpfs1]
+changed: [magcarlnxfgd]
+changed: [magirvlnxfgp]
+changed: [magcarlnxqasd]
+changed: [magcarlnxmd3d]
+changed: [magirvlnxcsm1]
+changed: [magirvlnxcsmd]
+changed: [magcarlnxcsma]
+changed: [magcarlnxcsmd]
+changed: [magcarlnxcsda]
+changed: [magcarlnxcssa]
+changed: [magcarlnxcsdd]
+changed: [magcarlnxcssd]
+changed: [magcarlnxprdr]
+changed: [magcarlnxmd3a]
+changed: [magcarlnxqasa]
+
+TASK [debug] ***********************************************************************************************************************************************************
+ok: [magcarlnxdmo] => {
+    "query1.stdout_lines": [
+        "magcarlnxdmo",
+        " 10:00:29 up 513 days, 16:25,  3 users,  load average: 0.16, 0.06, 0.06"
+    ]
+}
+ok: [magirvlnxprda] => {
+    "query1.stdout_lines": [
+        "magirvlnxprda",
+        " 10:00:29 up 68 days, 57 min,  4 users,  load average: 0.86, 1.17, 1.04"
+    ]
+}
+ok: [magirvlnxprdd] => {
+    "query1.stdout_lines": [
+        "magirvlnxprdd",
+        " 10:00:29 up 68 days,  1:59,  4 users,  load average: 10.12, 7.94, 6.83"
+    ]
+}
+ok: [magirvlnxprd1] => {
+    "query1.stdout_lines": [
+        "magirvlnxprd1",
+        " 10:00:29 up 271 days,  5:30,  1 user,  load average: 0.36, 0.41, 0.47"
+    ]
+}
+ok: [magirvlnxprd2] => {
+    "query1.stdout_lines": [
+        "magirvlnxprd2",
+        " 10:00:29 up 271 days,  5:24,  1 user,  load average: 0.54, 0.42, 0.42"
+    ]
+}
+ok: [magirvlnxpfs1] => {
+    "query1.stdout_lines": [
+        "magirvlnxpfs1",
+        " 15:00:25 up 431 days, 23:40,  2 users,  load average: 0.00, 0.01, 0.05"
+    ]
+}
+ok: [magcarlnxqasa] => {
+    "query1.stdout_lines": [
+        "magcarlnxqasa",
+        " 15:00:36 up 92 days, 18:37,  1 user,  load average: 0.26, 0.12, 0.06"
+    ]
+}
+ok: [magcarlnxqasd] => {
+    "query1.stdout_lines": [
+        "magcarlnxqasd",
+        " 15:00:30 up 92 days, 18:36,  1 user,  load average: 0.89, 0.90, 0.79"
+    ]
+}
+ok: [magcarlnxfgd] => {
+    "query1.stdout_lines": [
+        "magcarlnxfgd",
+        " 15:00:30 up 92 days, 10:04,  1 user,  load average: 0.32, 0.12, 0.12"
+    ]
+}
+ok: [magirvlnxfgp] => {
+    "query1.stdout_lines": [
+        "magirvlnxfgp",
+        " 15:00:30 up 57 days, 15:26,  3 users,  load average: 0.25, 0.19, 0.15"
+    ]
+}
+ok: [magcarlnxmd3a] => {
+    "query1.stdout_lines": [
+        "magcarlnxmd3a",
+        " 15:00:36 up 94 days, 19:56,  1 user,  load average: 0.20, 0.22, 0.22"
+    ]
+}
+ok: [magcarlnxmd3d] => {
+    "query1.stdout_lines": [
+        "magcarlnxmd3d",
+        " 15:00:30 up 281 days, 10:24,  1 user,  load average: 0.41, 0.41, 0.44"
+    ]
+}
+ok: [magirvlnxcsm1] => {
+    "query1.stdout_lines": [
+        "magirvlnxcsm1",
+        " 09:00:30 up 445 days, 12:19,  2 users,  load average: 0.83, 1.03, 1.29"
+    ]
+}
+ok: [magirvlnxcsmd] => {
+    "query1.stdout_lines": [
+        "magirvlnxcsmd",
+        " 09:00:31 up 158 days,  6:52,  1 user,  load average: 3.57, 2.72, 3.07"
+    ]
+}
+ok: [magcarlnxcsma] => {
+    "query1.stdout_lines": [
+        "magcarlnxcsma",
+        " 09:00:31 up 290 days, 21:11,  1 user,  load average: 0.18, 0.18, 0.11"
+    ]
+}
+ok: [magcarlnxcsmd] => {
+    "query1.stdout_lines": [
+        "magcarlnxcsmd",
+        " 09:00:31 up 290 days, 21:12,  2 users,  load average: 0.29, 0.27, 0.33"
+    ]
+}
+ok: [magcarlnxcsda] => {
+    "query1.stdout_lines": [
+        "magcarlnxcsda",
+        " 09:00:31 up 103 days,  3:58,  1 user,  load average: 0.06, 0.06, 0.05"
+    ]
+}
+ok: [magcarlnxcsdd] => {
+    "query1.stdout_lines": [
+        "magcarlnxcsdd",
+        " 09:00:31 up 277 days, 22:51,  1 user,  load average: 1.30, 1.11, 1.12"
+    ]
+}
+ok: [magcarlnxcssa] => {
+    "query1.stdout_lines": [
+        "magcarlnxcssa",
+        " 09:00:31 up 475 days, 15:46,  1 user,  load average: 0.13, 0.04, 0.05"
+    ]
+}
+ok: [magcarlnxcssd] => {
+    "query1.stdout_lines": [
+        "magcarlnxcssd",
+        " 09:00:32 up 290 days, 22:59,  1 user,  load average: 0.91, 1.05, 0.95"
+    ]
+}
+ok: [magcarlnxprdr] => {
+    "query1.stdout_lines": [
+        "magcarlnxprdr",
+        " 10:00:32 up 281 days, 12:02,  1 user,  load average: 0.00, 0.01, 0.05"
+    ]
+}
+
+PLAY RECAP *************************************************************************************************************************************************************
+magcarlnxcsda              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxcsdd              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxcsma              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxcsmd              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxcsmr              : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0
+magcarlnxcssa              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxcssd              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxdmo               : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxdmoq              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxfgd               : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxmd3a              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxmd3d              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxprdr              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxqasa              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxqasd              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxsbxa              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magcarlnxsbxd              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxcsm1              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxcsma              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxcsmd              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxfgp               : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxpfs1              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxprd1              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxprd2              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxprda              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+magirvlnxprdd              : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+[root@magcarlnxdmo playbooks]# ls -la
+total 120
+drwxr-xr-x. 2 root     root    4096 Feb  5 09:59 .
+drwxr-xr-x. 5 root     root    4096 Feb  5 02:45 ..
+-rw-r--r--. 1 root     root     239 Jul  3  2019 1
+-rw-r--r--. 1 root     root     653 Mar 23  2020 addsaproot.yml
+-rw-r--r--. 1 root     unixadm  651 Jul  6  2018 basisadduser.yml
+-rw-r--r--. 1 root     root     231 Feb  5 09:59 chandrauptime.yml
+-rw-r--r--. 1 root     root      13 Jul  3  2019 change-lijo.retry
+-rw-r--r--. 1 root     root     308 May 14  2019 change-lijo.yml
+-rw-r--r--. 1 root     root      13 Jul  3  2019 change-passwd-lgorantl.retry
+-rw-r--r--. 1 root     root     244 Jul  3  2019 change-passwd-lgorantl.yml
+-rw-r--r--. 1 root     root     386 Oct 27  2018 change-passwd.retry
+-rw-r--r--. 1 root     unixadm  304 Oct 27  2018 change-passwd.yml
+-rw-r--r--. 1 root     root     293 Nov  2 04:50 change-swoo-passwd.yml
+-rw-r--r--. 1 root     root      22 Jul 29  2018 change-vapin-passwd.retry
+-rw-r--r--. 1 root     unixadm  295 Feb  5 04:22 change-vapin-passwd.yml
+-rw-r--r--. 1 root     unixadm  183 Jul  6  2018 copy-file.yml
+-rw-r--r--. 1 root     unixadm  276 Apr 11  2019 irvingbackuproute.yml
+-rw-r--r--. 1 root     unixadm  142 Jul  6  2018 irving-route-eno50338560
+-rw-r--r--. 1 root     root      14 Mar 22  2019 magna.retry
+-rw-r--r--. 1 root     unixadm  598 Oct  1 16:24 magna.yml
+-rw-r--r--. 1 root     root      81 Mar 23  2020 removesaproot
+-rw-r--r--. 1 root     root      28 Feb 28  2019 searchcifs.retry
+-rw-r--r--. 1 root     root     141 Feb 28  2019 searchcifs.yml
+-rw-r--r--. 1 csomayaj unixadm   21 Feb  5 05:26 test.txt
+-rw-r--r--. 1 root     root     228 Oct 25 03:13 time-magna.yml
+-rw-r--r--. 1 root     root     163 Nov 16 21:10 time-zone.yml
+-rw-r--r--. 1 root     root     231 Nov 16 20:53 time.zone.yml
+-rw-r--r--. 1 root     root     167 Sep 17  2019 tmout.yml
+-rw-r--r--. 1 csomayaj unixadm  243 Feb  5 09:28 uptime_chdnar.yml
+-rw-r--r--. 1 root     root      93 Feb  5 09:21 uptime.yml
+[root@magcarlnxdmo playbooks]# ls -la
+total 120
+drwxr-xr-x. 2 root     root    4096 Feb  5 09:59 .
+drwxr-xr-x. 5 root     root    4096 Feb  5 02:45 ..
+-rw-r--r--. 1 root     root     239 Jul  3  2019 1
+-rw-r--r--. 1 root     root     653 Mar 23  2020 addsaproot.yml
+-rw-r--r--. 1 root     unixadm  651 Jul  6  2018 basisadduser.yml
+-rw-r--r--. 1 root     root     231 Feb  5 09:59 chandrauptime.yml
+-rw-r--r--. 1 root     root      13 Jul  3  2019 change-lijo.retry
+-rw-r--r--. 1 root     root     308 May 14  2019 change-lijo.yml
+-rw-r--r--. 1 root     root      13 Jul  3  2019 change-passwd-lgorantl.retry
+-rw-r--r--. 1 root     root     244 Jul  3  2019 change-passwd-lgorantl.yml
+-rw-r--r--. 1 root     root     386 Oct 27  2018 change-passwd.retry
+-rw-r--r--. 1 root     unixadm  304 Oct 27  2018 change-passwd.yml
+-rw-r--r--. 1 root     root     293 Nov  2 04:50 change-swoo-passwd.yml
+-rw-r--r--. 1 root     root      22 Jul 29  2018 change-vapin-passwd.retry
+-rw-r--r--. 1 root     unixadm  295 Feb  5 04:22 change-vapin-passwd.yml
+-rw-r--r--. 1 root     unixadm  183 Jul  6  2018 copy-file.yml
+-rw-r--r--. 1 root     unixadm  276 Apr 11  2019 irvingbackuproute.yml
+-rw-r--r--. 1 root     unixadm  142 Jul  6  2018 irving-route-eno50338560
+-rw-r--r--. 1 root     root      14 Mar 22  2019 magna.retry
+-rw-r--r--. 1 root     unixadm  598 Oct  1 16:24 magna.yml
+-rw-r--r--. 1 root     root      81 Mar 23  2020 removesaproot
+-rw-r--r--. 1 root     root      28 Feb 28  2019 searchcifs.retry
+-rw-r--r--. 1 root     root     141 Feb 28  2019 searchcifs.yml
+-rw-r--r--. 1 csomayaj unixadm   21 Feb  5 05:26 test.txt
+-rw-r--r--. 1 root     root     228 Oct 25 03:13 time-magna.yml
+-rw-r--r--. 1 root     root     163 Nov 16 21:10 time-zone.yml
+-rw-r--r--. 1 root     root     231 Nov 16 20:53 time.zone.yml
+-rw-r--r--. 1 root     root     167 Sep 17  2019 tmout.yml
+-rw-r--r--. 1 csomayaj unixadm  243 Feb  5 09:28 uptime_chdnar.yml
+-rw-r--r--. 1 root     root      93 Feb  5 09:21 uptime.yml
+[root@magcarlnxdmo playbooks]# cat chandrauptime.yml
+## query.yml
+#### This playbook is for creating querys to various RHEL versions
+
+
+- hosts: allhosts
+  become: yes
+  tasks:
+  - name: QUERY_uname
+    shell: "uname -n;uptime"
+    register: query1
+  - debug: var=query1.stdout_lines
+[root@magcarlnxdmo playbooks]# mailx -v chandrashekara.somayaji@atos.net
+Subject: Test
+.
+EOT
+Null message body; hope that's ok
+send-mail: fatal: parameter inet_interfaces: no local interface found for ::1
+[root@magcarlnxdmo playbooks]#
