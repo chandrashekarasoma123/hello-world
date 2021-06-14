@@ -1,0 +1,58 @@
+---
+- hosts: registry
+  vars_prompt:
+  - name: confirmation
+    prompt: "Type 'YES' to establish passwordless login to the remote hosts:"
+    default: 'NO'
+    private: no
+
+  vars:
+    id_rsa_file: "~/.ssh/id_rsa"
+    id_rsa_file_pub: "~/.ssh/id_rsa.pub"
+  tasks:
+    - name: Passwordless ssh connection 
+      block:
+        - name: Check .ssh directory exists on Remote Server
+          stat:
+            path: ~/.ssh
+          register: ssh_dir
+
+        - debug:
+            msg: "{{ssh_dir.stat.exists}}"
+
+        - name: create ~/.ssh on remote server if not exists
+          file:
+            path: "~/.ssh"
+            state: directory
+            mode: "0700"
+          register: ssh_directory_creation
+          when: ssh_dir is defined and ssh_dir.stat.exists == false
+
+        - name: Check if ssh_private_key file exist on Ansible Controller
+          stat:
+            path: "{{id_rsa_file}}"
+          delegate_to: 127.0.0.1
+          register: ssh_private_key
+
+        - debug:
+            msg: "{{ssh_private_key.stat.exists}}"
+          
+        - name: Generating ssh key pair on Ansible Controller if not exist
+          local_action: 'command ssh-keygen -t rsa -b 4096 -f "{{ id_rsa_file }}" -q -N ""'
+          when: ssh_private_key.stat.exists == false
+
+       # - name: Copy the pub key to remote host
+        #  copy:
+        #    src: "{{id_rsa_file_pub}}"
+        #    #dest: "id_rsa.pub.ansible_host"
+        #    dest: "{{ansible_env.HOME}}/id_rsa.pub.ansible_host"
+    #   #     flat: yes
+        
+        - name: Add the Pub key from Ansible Controller to Authorised_keys file on remote host
+          authorized_key:
+            user: "{{ansible_user}}"
+            state: present
+            #key: "{{ lookup('file', 'id_rsa.pub.ansible_host}}')"
+            #key: "{{ lookup('file', ansible_env.HOME+'/id_rsa.pub.ansible_host')}}"
+            key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+      when: confirmation == 'Yes' or confirmation == 'yes'
