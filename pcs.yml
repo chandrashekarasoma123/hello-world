@@ -1,0 +1,9 @@
+---
+ - hosts: test
+  name:  Pacemaker cluster remove from maintenance mode
+  tasks:
+          - name:  Pacemaker cluster  remove from maintenance mode
+            shell: pcs property set maintenance-mode=false
+            register: command_output
+          - debug:
+                   var: command_output.stdout_lines

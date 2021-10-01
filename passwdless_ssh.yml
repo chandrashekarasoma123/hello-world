@@ -39,14 +39,7 @@
           
         - name: Generating ssh key pair on Ansible Controller if not exist
           local_action: 'command ssh-keygen -t rsa -b 4096 -f "{{ id_rsa_file }}" -q -N ""'
-          when: ssh_private_key.stat.exists == false
-
-       # - name: Copy the pub key to remote host
-        #  copy:
-        #    src: "{{id_rsa_file_pub}}"
-        #    #dest: "id_rsa.pub.ansible_host"
-        #    dest: "{{ansible_env.HOME}}/id_rsa.pub.ansible_host"
-    #   #     flat: yes
+          when: ssh_private_key.stat.exists == falsegit 
         
         - name: Add the Pub key from Ansible Controller to Authorised_keys file on remote host
           authorized_key:
