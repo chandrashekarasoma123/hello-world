@@ -1,6 +1,27 @@
-resource local_file name {
-  filename     = "sample.txt"
-  content      = " i love terraform"
+terraform {
+  required_providers {
+    docker = {
+      source  = "kreuzwerker/docker"
+      version = "~> 2.13.0"
+    }
   }
-resource "google_compute_instance" "kcs_server_inst" {
-  for_each = var.server_build_info
+}
+
+
+provider "docker" {}
+
+
+resource "docker_image" "nginx" {
+  name         = "nginx:latest"
+  keep_locally = false
+}
+
+
+resource "docker_container" "nginx" {
+  image = docker_image.nginx.latest
+  name  = "tutorial"
+  ports {
+    internal = 80
+    external = 8000
+  }
+}
