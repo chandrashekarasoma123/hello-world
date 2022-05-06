@@ -1,7 +1,5 @@
 pipeline {
-  agent {
-  }
-  stages {
+   stages {
     // [START tf-init, tf-validate]
     stage('TF init & validate') {
       when { anyOf {branch "prod";branch "dev";changeRequest() } }
