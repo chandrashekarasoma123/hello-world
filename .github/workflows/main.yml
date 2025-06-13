@@ -1,0 +1,99 @@
+# .github/workflows/terraform.yml
+
+name: Terraform GCP Bucket CI/CD
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on pushes to the 'main' branch
+  push:
+    branches:
+      - main
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Define environment variables to be used throughout the workflow
+env:
+  # Your GCP Project ID, stored as a GitHub Secret
+  GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+  # The name of the GCS bucket used for Terraform state, stored as a GitHub Secret
+  TF_STATE_BUCKET: ${{ secrets.TF_STATE_BUCKET }}
+  # The name of the bucket to be created by Terraform.
+  # This should be globally unique, consider using a timestamp or a unique prefix.
+  # Example: "my-app-unique-bucket-${{ github.run_id }}"
+  BUCKET_NAME: "your-unique-bucket-name-here-12345" # <-- IMPORTANT: Change this to a globally unique name!
+  GCP_REGION: "us-central1" # <-- Optional: Change this if you prefer a different region
+
+jobs:
+  terraform:
+    name: "Terraform Apply"
+    runs-on: ubuntu-latest
+
+    # Set permissions for the GITHUB_TOKEN
+    # id-token: write is required for Workload Identity Federation (more secure)
+    # If using Service Account Key JSON, 'contents: read' is usually sufficient
+    permissions:
+      contents: read
+      id-token: write # Required for google-github-actions/auth to work with OIDC or for advanced auth
+
+    steps:
+      # Step 1: Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Authenticate to Google Cloud
+      # This step uses the Service Account Key JSON stored in GitHub Secrets
+      # As a best practice, consider implementing Workload Identity Federation for enhanced security.
+      # Reference: https://github.com/google-github-actions/auth#authentication-methods
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.GCP_SA_KEY }}
+          project_id: ${{ env.GCP_PROJECT_ID }} # Explicitly set project_id for gcloud and Terraform
+
+      # Step 3: Set up Google Cloud SDK (gcloud CLI)
+      # This is useful if you need to run any gcloud commands in subsequent steps.
+      - name: Set up gcloud CLI
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ env.GCP_PROJECT_ID }}
+
+      # Step 4: Set up Terraform CLI
+      # This action installs the specified version of Terraform CLI.
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "latest" # Use the latest stable version
+
+      # Step 5: Initialize Terraform
+      # This command initializes a new or existing Terraform working directory.
+      # It downloads necessary providers and configures the backend for state management.
+      - name: Terraform Init
+        run: terraform init -backend-config="bucket=${{ env.TF_STATE_BUCKET }}" -backend-config="prefix=terraform/state"
+
+      # Step 6: Validate Terraform configuration
+      # Checks the syntax and configuration against the provider's capabilities.
+      - name: Terraform Validate
+        run: terraform validate
+
+      # Step 7: Generate a Terraform plan
+      # This creates an execution plan, showing what actions Terraform will take.
+      # The plan is saved to a file, which can then be applied in the next step.
+      - name: Terraform Plan
+        run: |
+          terraform plan \
+            -out=tfplan \
+            -var="gcp_project_id=${{ env.GCP_PROJECT_ID }}" \
+            -var="gcp_region=${{ env.GCP_REGION }}" \
+            -var="bucket_name=${{ env.BUCKET_NAME }}" \
+            -var="tf_state_bucket_name=${{ env.TF_STATE_BUCKET }}"
+
+      # Step 8: Apply the Terraform plan
+      # This applies the changes defined in the execution plan.
+      # `-auto-approve` is used here for automation, but in a real-world scenario,
+      # you might want a manual approval step, especially for production environments.
+      - name: Terraform Apply
+        run: |
+          terraform apply \
+            -auto-approve \
+            tfplan
